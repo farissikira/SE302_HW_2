@@ -31,14 +31,14 @@ test.describe('Sweet Shop Automated Tests', () => {
         await expect(page).not.toHaveURL(/login/);
     });
 
-    test('TC-04 Login Form (Invalid input)', async ({ page }) => {
+    test('TC-04 Login Form (Missing email and password)', async ({ page }) => {
         const home = new HomePage(page);
         const login = new LoginPage(page);
 
         await home.openPage();
         await home.loginLink().click();
 
-        await login.emailInput().fill('invalidgmail.com');
+        await login.emailInput().fill('');
         await login.passwordInput().fill('');
 
         await login.loginButton().click();

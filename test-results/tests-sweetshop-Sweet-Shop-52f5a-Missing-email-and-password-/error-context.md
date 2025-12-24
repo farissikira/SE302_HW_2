@@ -1,0 +1,77 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Sweet Shop" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Sweets" [ref=e8] [cursor=pointer]:
+            - /url: /sweets
+        - listitem [ref=e9]:
+          - link "About" [ref=e10] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e11]:
+          - link "Login" [ref=e12] [cursor=pointer]:
+            - /url: /login
+        - listitem [ref=e13]:
+          - link "0 Basket" [ref=e14] [cursor=pointer]:
+            - /url: /basket
+            - generic [ref=e15]: "0"
+            - text: Basket
+          - generic [ref=e16]: (current)
+  - generic [ref=e17]:
+    - banner [ref=e18]:
+      - heading "Your Account" [level=1] [ref=e19]
+      - paragraph [ref=e20]:
+        - text: Welcome back
+        - link "test@user.com" [ref=e21] [cursor=pointer]:
+          - /url: "#"
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - heading "Your Basket 0" [level=4] [ref=e24]:
+          - generic [ref=e25]: Your Basket
+          - generic [ref=e26]: "0"
+        - list
+      - generic [ref=e27]:
+        - heading "Previous Orders" [level=4] [ref=e28]
+        - table [ref=e31]:
+          - rowgroup [ref=e32]:
+            - row "Order Number Date Ordered Order Description Order Total" [ref=e33]:
+              - columnheader "Order Number" [ref=e34]:
+                - link "Order Number" [ref=e35] [cursor=pointer]:
+                  - /url: javascript:SortTable(0,'T');
+              - columnheader "Date Ordered" [ref=e36]:
+                - link "Date Ordered" [ref=e37] [cursor=pointer]:
+                  - /url: javascript:SortTable(1,'D','mdy');
+              - columnheader "Order Description" [ref=e38]:
+                - link "Order Description" [ref=e39] [cursor=pointer]:
+                  - /url: javascript:SortTable(2,'T');
+              - columnheader "Order Total" [ref=e40]:
+                - link "Order Total" [ref=e41] [cursor=pointer]:
+                  - /url: javascript:SortTable(0,'N');
+          - rowgroup [ref=e42]:
+            - row "#1 11th Feb 2019 Swansea Mixture x 1 1.50" [ref=e43]:
+              - rowheader "#1" [ref=e44]
+              - cell "11th Feb 2019" [ref=e45]
+              - cell "Swansea Mixture x 1" [ref=e46]
+              - cell "1.50" [ref=e47]
+            - row "#2 11th July 2019 Sherbert Straws x 1 0.75" [ref=e48]:
+              - rowheader "#2" [ref=e49]
+              - cell "11th July 2019" [ref=e50]
+              - cell "Sherbert Straws x 1" [ref=e51]
+              - cell "0.75" [ref=e52]
+            - row "#3 1st December 2019 Chocolate Cups x 5 Swansea Mixture x 2 8.00" [ref=e53]:
+              - rowheader "#3" [ref=e54]
+              - cell "1st December 2019" [ref=e55]
+              - cell "Chocolate Cups x 5 Swansea Mixture x 2" [ref=e56]:
+                - text: Chocolate Cups x 5
+                - text: Swansea Mixture x 2
+              - cell "8.00" [ref=e57]
+        - heading "Item Order Breakdown" [level=4] [ref=e58]
+        - separator [ref=e60]
+  - contentinfo [ref=e61]:
+    - paragraph [ref=e63]: Sweet Shop Project 2018
+```
