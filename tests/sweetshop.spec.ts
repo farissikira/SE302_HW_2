@@ -19,17 +19,6 @@ test.describe('Sweet Shop Automated Tests', () => {
         await expect(page).toHaveURL(/sweets/);
     });
 
-    test('TC-03 Login Form (Valid input)', async ({ page }) => {
-        const home = new HomePage(page);
-        const login = new LoginPage(page);
-        await home.openPage();
-        await home.loginLink().click();
-        await login.emailInput().fill('test@gmail.com');
-        await login.passwordInput().fill('test101010');
-        await login.loginButton().click();
-        await page.waitForLoadState('networkidle');
-        await expect(page).not.toHaveURL(/login/);
-    });
 
     test('TC-04 Login Form (Missing email and password)', async ({ page }) => {
         const home = new HomePage(page);
@@ -62,5 +51,18 @@ test.describe('Sweet Shop Automated Tests', () => {
         expect(await productCards.count()).toBe(16);
 
 
+    });
+
+
+    test('TC-07 Login Form (Invalid credentials)', async ({ page }) => {
+        const home = new HomePage(page);
+        const login = new LoginPage(page);
+        await home.openPage();
+        await home.loginLink().click();
+        await login.emailInput().fill('testgmail.com');
+        await login.passwordInput().fill('test101010');
+        await login.loginButton().click();
+        await page.waitForLoadState('networkidle');
+        await expect(page).not.toHaveURL(/login/);
     });
 });
