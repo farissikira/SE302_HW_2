@@ -54,15 +54,27 @@ test.describe('Sweet Shop Automated Tests', () => {
     });
 
 
-    test('TC-07 Login Form (Invalid credentials)', async ({ page }) => {
+    test('TC-07 Login Form (Non-existing credentials)', async ({ page }) => {
         const home = new HomePage(page);
         const login = new LoginPage(page);
+
         await home.openPage();
         await home.loginLink().click();
-        await login.emailInput().fill('testgmail.com');
+
+        await login.emailInput().fill('nonExistingUser@gmail.com');
         await login.passwordInput().fill('test101010');
         await login.loginButton().click();
+
         await page.waitForLoadState('networkidle');
-        await expect(page).not.toHaveURL(/login/);
+
+        const errorMessage = login.errorMessageForLogin();
+
+        if (await errorMessage.count() > 0) {
+            await expect(errorMessage).toBeVisible();
+        } else {
+            await expect(errorMessage).toBeVisible();
+        }
+
+        await expect(home.loginLink()).toBeVisible();
     });
 });
