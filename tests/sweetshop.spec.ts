@@ -69,12 +69,9 @@ test.describe('Sweet Shop Automated Tests', () => {
 
         const errorMessage = login.errorMessageForLogin();
 
-        if (await errorMessage.count() > 0) {
-            await expect(errorMessage).toBeVisible();
-        } else {
-            await expect(errorMessage).toBeVisible();
-        }
+        await expect(errorMessage).toBeVisible();
 
         await expect(home.loginLink()).toBeVisible();
     });
+
 });
